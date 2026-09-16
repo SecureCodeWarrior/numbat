@@ -89,11 +89,27 @@ func TestFacadeSignatures(t *testing.T) {
 		AgentOpenHands, AgentCrush, AgentJunie,
 	}
 	_ = []Lifecycle{
-		LifecycleSessionStart, LifecyclePromptSubmit, LifecyclePreTool, LifecyclePostTool, LifecycleStop,
-		LifecycleSessionEnd, LifecycleAssistant, LifecycleCursorPreTool, LifecycleCursorPostTool, LifecycleCodexPreTool,
-		LifecycleGeminiPreTool, LifecycleVSCodePreTool, LifecycleCopilotPreTool,
+		LifecycleSessionStart, LifecyclePromptSubmit, LifecyclePreTool, LifecyclePostTool, LifecyclePermission,
+		LifecyclePermissionDenied, LifecycleStop, LifecycleSessionEnd, LifecycleFileRead, LifecycleFileWrite,
+		LifecycleMCPCall, LifecycleCommandExec, LifecycleCommandResult, LifecycleAssistant,
+		LifecycleCopilotPreTool, LifecycleCopilotPostTool, LifecycleCopilotPermission,
+		LifecycleCursorPreTool, LifecycleCursorPostTool, LifecycleCursorPostToolFailure,
+		LifecycleVSCodePreTool, LifecycleVSCodePostTool,
+		LifecycleCodexPreTool, LifecycleCodexPostTool, LifecycleCodexPermission,
+		LifecycleGeminiPreTool, LifecycleGeminiPostTool,
+		LifecycleOpenCodePreTool, LifecycleOpenCodePostTool,
+		LifecycleAntigravityPreTool, LifecycleAntigravityPostTool,
+		LifecycleFactoryPreTool, LifecycleFactoryPostTool,
+		LifecycleGrokPreTool, LifecycleGrokPostTool,
+		LifecycleDevinPreTool, LifecycleDevinPostTool, LifecycleDevinPermission,
+		LifecycleHermesPreTool, LifecycleHermesPostTool, LifecycleHermesPermission, LifecycleHermesPermissionResult,
 	}
-	var _ EventType = EventMessageReasoning
+	_ = []EventType{
+		EventSessionStart, EventSessionEnd, EventPromptUser, EventMessageAssistant, EventToolCall, EventToolResult,
+		EventCommandExec, EventCommandResult, EventFileRead, EventFileWrite, EventFileDelete,
+		EventPermissionRequested, EventPermissionApproved, EventPermissionDenied,
+		EventConfigAgent, EventConfigMCP, EventNetworkIndicator, EventMessageReasoning,
+	}
 	var _ Rule
 	var _ Finding
 	var _ EnforcementDecision

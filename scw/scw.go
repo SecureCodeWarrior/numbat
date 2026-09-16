@@ -31,7 +31,24 @@ type (
 const (
 	SchemaVersion = model.SchemaVersion
 
-	EventMessageReasoning = model.EventMessageReasoning
+	EventSessionStart        = model.EventSessionStart
+	EventSessionEnd          = model.EventSessionEnd
+	EventPromptUser          = model.EventPromptUser
+	EventMessageAssistant    = model.EventMessageAssistant
+	EventToolCall            = model.EventToolCall
+	EventToolResult          = model.EventToolResult
+	EventCommandExec         = model.EventCommandExec
+	EventCommandResult       = model.EventCommandResult
+	EventFileRead            = model.EventFileRead
+	EventFileWrite           = model.EventFileWrite
+	EventFileDelete          = model.EventFileDelete
+	EventPermissionRequested = model.EventPermissionRequested
+	EventPermissionApproved  = model.EventPermissionApproved
+	EventPermissionDenied    = model.EventPermissionDenied
+	EventConfigAgent         = model.EventConfigAgent
+	EventConfigMCP           = model.EventConfigMCP
+	EventNetworkIndicator    = model.EventNetworkIndicator
+	EventMessageReasoning    = model.EventMessageReasoning
 
 	EnforcementDecisionNoOverride = model.EnforcementDecisionNoOverride
 	EnforcementDecisionDeny       = model.EnforcementDecisionDeny
@@ -81,20 +98,49 @@ const (
 	AgentCrush       = hook.AgentCrush
 	AgentJunie       = hook.AgentJunie
 
-	LifecycleSessionStart = hook.LifecycleSessionStart
-	LifecyclePromptSubmit = hook.LifecyclePromptSubmit
-	LifecyclePreTool      = hook.LifecyclePreTool
-	LifecyclePostTool     = hook.LifecyclePostTool
-	LifecycleStop         = hook.LifecycleStop
-	LifecycleSessionEnd   = hook.LifecycleSessionEnd
-	LifecycleAssistant    = hook.LifecycleAssistant
+	LifecycleSessionStart     = hook.LifecycleSessionStart
+	LifecyclePromptSubmit     = hook.LifecyclePromptSubmit
+	LifecyclePreTool          = hook.LifecyclePreTool
+	LifecyclePostTool         = hook.LifecyclePostTool
+	LifecyclePermission       = hook.LifecyclePermission
+	LifecyclePermissionDenied = hook.LifecyclePermissionDenied
+	LifecycleStop             = hook.LifecycleStop
+	LifecycleSessionEnd       = hook.LifecycleSessionEnd
+	LifecycleFileRead         = hook.LifecycleFileRead
+	LifecycleFileWrite        = hook.LifecycleFileWrite
+	LifecycleMCPCall          = hook.LifecycleMCPCall
+	LifecycleCommandExec      = hook.LifecycleCommandExec
+	LifecycleCommandResult    = hook.LifecycleCommandResult
+	LifecycleAssistant        = hook.LifecycleAssistant
 
-	LifecycleCursorPreTool  = hook.LifecycleCursorPreTool
-	LifecycleCursorPostTool = hook.LifecycleCursorPostTool
-	LifecycleCodexPreTool   = hook.LifecycleCodexPreTool
-	LifecycleGeminiPreTool  = hook.LifecycleGeminiPreTool
-	LifecycleVSCodePreTool  = hook.LifecycleVSCodePreTool
-	LifecycleCopilotPreTool = hook.LifecycleCopilotPreTool
+	LifecycleCopilotPreTool         = hook.LifecycleCopilotPreTool
+	LifecycleCopilotPostTool        = hook.LifecycleCopilotPostTool
+	LifecycleCopilotPermission      = hook.LifecycleCopilotPermission
+	LifecycleCursorPreTool          = hook.LifecycleCursorPreTool
+	LifecycleCursorPostTool         = hook.LifecycleCursorPostTool
+	LifecycleCursorPostToolFailure  = hook.LifecycleCursorPostToolFailure
+	LifecycleVSCodePreTool          = hook.LifecycleVSCodePreTool
+	LifecycleVSCodePostTool         = hook.LifecycleVSCodePostTool
+	LifecycleCodexPreTool           = hook.LifecycleCodexPreTool
+	LifecycleCodexPostTool          = hook.LifecycleCodexPostTool
+	LifecycleCodexPermission        = hook.LifecycleCodexPermission
+	LifecycleGeminiPreTool          = hook.LifecycleGeminiPreTool
+	LifecycleGeminiPostTool         = hook.LifecycleGeminiPostTool
+	LifecycleOpenCodePreTool        = hook.LifecycleOpenCodePreTool
+	LifecycleOpenCodePostTool       = hook.LifecycleOpenCodePostTool
+	LifecycleAntigravityPreTool     = hook.LifecycleAntigravityPreTool
+	LifecycleAntigravityPostTool    = hook.LifecycleAntigravityPostTool
+	LifecycleFactoryPreTool         = hook.LifecycleFactoryPreTool
+	LifecycleFactoryPostTool        = hook.LifecycleFactoryPostTool
+	LifecycleGrokPreTool            = hook.LifecycleGrokPreTool
+	LifecycleGrokPostTool           = hook.LifecycleGrokPostTool
+	LifecycleDevinPreTool           = hook.LifecycleDevinPreTool
+	LifecycleDevinPostTool          = hook.LifecycleDevinPostTool
+	LifecycleDevinPermission        = hook.LifecycleDevinPermission
+	LifecycleHermesPreTool          = hook.LifecycleHermesPreTool
+	LifecycleHermesPostTool         = hook.LifecycleHermesPostTool
+	LifecycleHermesPermission       = hook.LifecycleHermesPermission
+	LifecycleHermesPermissionResult = hook.LifecycleHermesPermissionResult
 )
 
 var (
